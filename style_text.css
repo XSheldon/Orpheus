@@ -1,0 +1,32 @@
+.canvasHolder{
+	width:960px;
+	height:640px;
+        background-image: url('image/Inventaire.png');
+        
+}
+
+#interface{
+	background-color:#ff0000;
+	width:960px;
+	height:140px;
+	margin-top:500px;
+}
+
+#canvas {
+	width:960px;
+	height:480px;
+	margin:0;
+	padding:20px;
+}
+#text {
+	position:relative;
+	bottom:120px;
+	left:30px;
+	margin-left:10px;
+    padding-top:510px;
+    width:415px;
+    height:110px;
+	color:#fff;
+	margin:0;
+	padding:0;
+}

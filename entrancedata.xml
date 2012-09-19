@@ -1,0 +1,111 @@
+<xml>
+<Orphee>
+<Rooms>
+
+<Room id="1" name="Entrance">
+
+<Item id="11" name = "Door">
+
+	<x> 925 </x>
+	<y> 145 </y>
+	<w> 35 </w>
+	<h> 355 </h>
+	<texte>What a beautiful door, and it seems so unbreakable!</texte>
+	
+	<inventaire> 0 </inventaire>
+	<activer> 
+		<texte> Open the door. </texte>
+		<resultat> I would love to do it, but it is so damn locked! </resultat>
+		<effet> </effet>
+	</activer>
+	<observer> 
+		<texte> Obviously i got to go through... </texte>
+		<effet> </effet>
+	</observer>
+	
+	<actions>
+		<action idAutreObjet="14"> 
+			<method>@todo </method>
+			<resultat> The door opens, great! </resultat>
+		</action>
+	</actions>
+		
+</Item>	
+<Item id="12" name = "Gargoyle">
+
+	<x> 850 </x>
+	<y> 85 </y>
+	<w> 35 </w>
+	<h> 55 </h>
+	<texte>What an ugly gargoyle!</texte>
+	
+	<inventaire> 0 </inventaire>
+	<activer> 
+		<texte> I could try to reach it!</texte>
+		<resultat> This is too high, i should have picked basket ball at college! </resultat>
+		<effet> </effet>
+	</activer>
+	<observer> 
+		<texte> Oh I think i saw something into it!  </texte>
+		<effet> </effet>
+	</observer>
+	<actions>
+		<action idAutreObjet="13"> 
+			<method>@todo </method>
+			<resultat> Hey! Something fell on the ground! </resultat>
+		</action>
+	</actions>
+		
+</Item>	
+
+</Room>
+
+<Room id="2" name="suite">
+	
+	<Item id="13" name = "Cane">
+
+	<x> 0 </x>
+	<y> 0 </y>
+	<w> 0 </w>
+	<h> 0 </h>
+	<texte>I would love to keep it for my old days...</texte>
+	
+	<inventaire> 1 </inventaire>
+	<activer> 
+		<texte> Take the cane. </texte>
+		<resultat> It's heavy but i had a little crush on it! </resultat>
+		<effet> </effet>
+	</activer>
+	<observer> 
+		<texte> It's a dark wood cane with a wolf head, so "chic"! </texte>
+		<effet> </effet>
+	</observer>
+	
+</Item>	
+
+<Item id="14" name = "Key">	
+	<x> 0 </x>
+	<y> 0 </y>
+	<w> 0 </w>
+	<h> 0 </h>
+	<texte>This is probably what fell from the gargoyle.</texte>
+	
+	<inventaire> 1 </inventaire>
+	<activer> 
+		<texte> Take the key. </texte>
+		<resultat> I think it'll help later. </resultat>
+		<effet> </effet>
+	</activer>
+	<observer> 
+		<texte> It's a key, you idiot! </texte>
+		<effet> </effet>
+	</observer>
+	
+</Item>		
+
+</Room>
+
+
+</Rooms>
+</Orphee>
+</xml>
