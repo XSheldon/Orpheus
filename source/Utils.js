@@ -1,12 +1,60 @@
+// CONSTANTES
+var CAN_WIDTH = 960;
+var CAN_HEIGHT = 640;
+var TEXT_BOX_HEIGHT = 140;
+
+var ACTION_PANEL_X = CAN_HEIGHT - TEXT_BOX_HEIGHT;
+var ACTION_PANEL_Y = 0 ;
+var ACTION_PANEL_W = CAN_WIDTH ;
+var ACTION_PANEL_H = TEXT_BOX_HEIGHT ;
+
+
+function checkTouched(clientX, clientY, scene_id){
+		
+		
+		
+		
+		// charger les objets (id, w,y,w,h) de la page
+		var mesActions = parseScene(scene_id);
+		
+		
+		if(mesActions == null){ alert("parsing qui foire") ; return null; };
+		
+		// regarder si on est dans leur rectangle
+		// pour chaque objet de la piece
+		
+		for(var k = 0; k < mesActions.length; k++){
+		
+			
+   		if(isInside(clientX, clientY, mesActions[k].x, mesActions[k].y, 
+   				mesActions[k].w, mesActions[k].h) == true){
+   			
+   			return mesActions[k];
+   			
+   		}// if
+			
+			
+			
+		}// for
+
+		return null;
+	
+		
+		
+	}// method
+	
+
+
 function makeItem(mon_id, mon_frame_id, x, y, width, height, 
    				description, can_be_taken, textOnActivate, activate_function_name, textResultActivate,
    							textOnObserve, observe_function_name, listOfInteractions){
-   	// listOfInteraction est une arraylist d'arraylist contenant un id d'objet qui combote et le nom de
-   	// la methode a appeler example listOfInteraction = [ (12, "ouvrirPorte"), (14, "sefairemal") ]							
+   	// listOfInteraction est une arraylist d'arraylist contenant un id d'objet
+	// qui combote et le nom de
+   	// la methode a appeler example listOfInteraction = [ (12, "ouvrirPorte"),
+	// (14, "sefairemal") ]
    								
    				var myItem = new Item(mon_id, mon_frame_id);
    								
-   				
    				   myItem.id = mon_id; 
 				   myItem.x = x;
 				   myItem.y = y;
@@ -36,11 +84,11 @@ function makeItem(mon_id, mon_frame_id, x, y, width, height,
    								
    				
    						
-   	}
+}
    	
    	function tableDesCorrespondances(function_string){
    		
-   		// @todo
+   		// @todo : completer
    		
    		
    		if((function_string == "ouvrirPorte") == true){
@@ -49,7 +97,7 @@ function makeItem(mon_id, mon_frame_id, x, y, width, height,
    				
    				alert("La porte s ouvre");	
    				
-   			}	
+   			};	
    			return mafunction;
    			
    			
@@ -57,7 +105,7 @@ function makeItem(mon_id, mon_frame_id, x, y, width, height,
    			
    		if(function_string == "" || function_string == null){
    			
-   			//alert("Pas de fonction");
+   			// alert("Pas de fonction");
    			return null;
    			
    		}	
@@ -65,55 +113,37 @@ function makeItem(mon_id, mon_frame_id, x, y, width, height,
    			
    	}
    	
+   	function checkAction(x, y, item){
+   		
+   		// regarder si on a tape dans l inventaire ou dans la zone de dialogue
+   		if(isInside(x, y, ACTION_PANEL_X, ACTION_PANEL_Y, 
+   				ACTION_PANEL_H, ACTION_PANEL_W) == true){
+   			
+   			// 1) si c'est l'inventaire
+   			
+   			// 1-a) trouver quelle case on a touche
+   			
+   			// 1-b) s'il y a quelque chose dedans
+   			
+   			// 1-c) chercher la phrase a afficher + action (je ne peux rien
+			// faire avec a ! / oh, a marche)
+   			
+   			
+   			// 2) si c'est la zone de texte
+   			// 2-a) trouver quelle action on a touche
+   			// 2-b) s'il y a une action correspondante
+   			// 2-c) chercher la phrase a afficher + action
+   			return null;
+   		}
    	
-   	function checkTouched(clientX, clientY, scene_id){
    		
-   		
-   		
-   		
-   		// charger les objets (id, w,y,w,h) de la page
-   		var mesActions = parseScene(scene_id);
-   		
-  
-   		
-   		if(mesActions == null){ alert("parsing qui foire") ; return null };
-   		
-   		// regarder si on est dans leur rectangle
-   		//pour chaque objet de la piece
-   		
-   		for(var k = 0; k < mesActions.length; k++){
-   			
-   			//alert("X = "+clientX+" Y : "+clientY);
-   			//alert("Item coordinates : "+mesActions[k].x+" "+mesActions[k].y+" "+mesActions[k].w+" "+mesActions[k].h+" ");
-   			
-	   		if( isInside(clientX, clientY, mesActions[k].x, mesActions[k].y, mesActions[k].w, mesActions[k].h) == true){
-	   			
-	   			
-	   			alert(mesActions[k].description_text);
-	   			
-	   			return mesActions[k];
-	   			
-	   		}//if
-	   		else
-	   		{
-	   			
-	   			// on a cliquÃ© sur rien
-	   					
-	   			
-   			}//else
-   			
-   			
-   			
-   			
-   		}//for
-
    		return null;
    		
    		
-   		
-   		
-   	}//method
+   	}
    	
+   	
+  
    	
    function isInside(xClic, yClic, x, y, w, h){
    	
@@ -167,65 +197,49 @@ function makeItem(mon_id, mon_frame_id, x, y, width, height,
    	
    	
    }
+
    
-   function parseItem(scene_id, item_id){
-   	
-   		
-   	
-   		var xmlhttp=new XMLHttpRequest();
-   		url = "./entrancedata.xml";
-   		xmlhttp.open("GET",url,false);
-		xmlhttp.send();
-		xmlDoc=xmlhttp.responseXML;
-		
-		
-		var items = xmlDoc.documentElement.getElementsByTagName("Room")[scene_id].getElementsByTagName("Item");
-		
-		
-		
-		for(var k=0; k< items.length ; k++){
-			
-			
-//			
-			if(parseInt(items[k].getAttribute("id")) == item_id){
-//				
-			//alert("trouvÃ©");
-			
-				var toReturn = craftItem(item[k], item_id, scene_id);
-				alert(toReturn.description_text);
-			   							
-   			return toReturn;				
-			}	//if
-			else{
-				
-				
-			}//else
-		}//for
-		  return null;	
-		  // orphee/rooms/room/item
-   	
-   	
-   	
-   	
-   }//function
+   function displayOptions(scene_id, id, item){
+	   	// @TODO : Žcrire dans le panel a la place
+	   	
+	   	document.getElementById("description").innerHTML = item.description_text;
+	   	
+	   	if(item.takable == true){
+	   	document.getElementById("prendre").innerHTML = "Prendre";
+	   	}
+	   	else {
+	   		document.getElementById("prendre").innerHTML = "";
+	   	}
+	   	document.getElementById("activer").innerHTML = item.textActivate;
+	   
+	   	document.getElementById("observer").innerHTML = "Get a closer look";
+	   	
+	   }
+      
    
-   function displayOptions(scene_id, id){
-   	
-   	//@todo
-   	var item = parseItem(scene_id, id);
-   	//recuper l'item dans le xml
-   	alert(item.description_text);
-   	return item.descrption_text;
-   	
-   	// afficher les differentes options possibles dans la console
-   	
-   	
-   	
+  function resetDisplay(){
+	  // @TODO = vider le panel a la place
+	
+	  
+	document.getElementById("description").innerHTML = " ";
+	   	
+	   
+	   	document.getElementById("prendre").innerHTML = " ";
+	   
+
+	   	
+	   	document.getElementById("activer").innerHTML = " ";
+	   
+	   	document.getElementById("observer").innerHTML = " ";
+	   	
+	   
+	   
    }
+
    
    function craftItem(monItem, item_id, scene_id){
    	
-   		//alert(item_id+" "+scene_id);
+   		// alert(item_id+" "+scene_id);
    	
    	
    		var xm = parseInt(monItem.getElementsByTagName("x")[0].textContent);
@@ -247,14 +261,16 @@ function makeItem(mon_id, mon_frame_id, x, y, width, height,
 			var toReturn = 	makeItem(item_id, scene_id, xm, ym, wm, hm, 
    					monTexte, prenable, 
    					textOnActivate, activate_function_name, textResultActivate,
-   							textOnObserve, observe_function_name, null); // tableau interaction todo
+   							textOnObserve, observe_function_name, null); // tableau
+																			// interaction
+																			// todo
    							
    							
    							
 			return toReturn;
    	
    	
-   }
+   };
    		
    		
    		

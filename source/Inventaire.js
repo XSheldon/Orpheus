@@ -63,6 +63,6 @@ function Inventaire(mon_id,mon_frame_id) {
   
   //une methode getItem(coordonnees)
   Inventaire.prototype.getItem = function (clicx, clicy) {
-      /trouver le bin index
-  retourer mesitems[index]
+      //trouver le bin index
+  //retourer mesitems[index]
   }

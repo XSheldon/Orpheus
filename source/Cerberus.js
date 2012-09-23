@@ -64,7 +64,7 @@
         this.vY = 0;
         // starting directly at the first frame of the walk_h sequence
         this.currentFrame = 21;
-    }
+    };
 
     Cerberus.prototype.tick = function () {
         if (!this.isInIdleMode) {
@@ -107,7 +107,7 @@
         return this.hitRadius(tX, tY, 0);
     }
 
-    Cerberus.prototype.hitRadius = function (tX, tY, tHit) {
+    Cerberus.prototype.hitRadius = function(tX, tY, tHit) {
         //early returns speed it up
         if (tX - tHit > this.x + this.hit) { return; }
         if (tX + tHit < this.x - this.hit) { return; }
@@ -117,5 +117,5 @@
         //now do the circle distance test
         return this.hit + tHit > Math.sqrt(Math.pow(Math.abs(this.x - tX), 2) + Math.pow(Math.abs(this.y - tY), 2));
     }
-
+});
     window.Cerberus = Cerberus;
