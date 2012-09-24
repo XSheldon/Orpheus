@@ -25,7 +25,7 @@
    this.id = mon_id;
    this.combo = new Array(); // c'est une array d'array avec dedans un Item et une methode
        
-  }
+  };
   
       
     

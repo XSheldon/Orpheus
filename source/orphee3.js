@@ -2,6 +2,9 @@
 
 var canvas;
 var stage;
+var observePanel;
+var activatePanel;
+var takePanel;
 var screen_width;
 var screen_height;
 var bmpAnimation;
@@ -40,10 +43,48 @@ function handleClick(mouseEvent) {
 		// on va ecrire dans la zone de texte sa description
 		currentMessage = displayOptions(scene_id, currentItem.id, currentItem);
 		// on va regarder si jamais le clic est dans la zone de texte ou d inventaire et agir 
-		checkAction(mouseEvent.clientX, mouseEvent.clientY, currentItem);
 		
 		} 
 
+}
+
+function handleObserve(mouseEvent){
+	// handler du clic dans la zone de texte
+	
+	if (currentItem != null) {
+
+		// on va regarder si jamais le clic est dans la zone de texte ou d inventaire et agir 
+		checkAction(0, currentItem);
+		
+		} 
+	
+	
+}
+
+function handleActivate(mouseEvent){
+	// handler du clic dans la zone de texte
+	
+	if (currentItem != null) {
+
+		// on va regarder si jamais le clic est dans la zone de texte ou d inventaire et agir 
+		checkAction(1, currentItem);
+		
+		} 
+	
+	
+}
+
+function handleTake(mouseEvent){
+	// handler du clic dans la zone de texte
+	
+	if (currentItem != null) {
+
+		// on va regarder si jamais le clic est dans la zone de texte ou d inventaire et agir 
+		checkAction(2, currentItem);
+		
+		} 
+	
+	
 }
 
 function init() {
@@ -51,7 +92,14 @@ function init() {
 	//find canvas and load images, wait for last image to load
 	canvas = document.getElementById("testCanvas");
 	canvas.addEventListener("click", handleClick);
-	//canvas.onClick = handleClick;
+	
+	observePanel = document.getElementById("observer");
+	observePanel.addEventListener("click", handleObserve);
+	activatePanel = document.getElementById("activer");
+	activatePanel.addEventListener("click", handleActivate);
+	takePanel = document.getElementById("prendre");
+	takePanel.addEventListener("click", handleTake);
+	
 	currentMessage = "";
 	// create a new stage and point it at our canvas:
 	stage = new createjs.Stage(canvas);
@@ -80,9 +128,6 @@ function handleImageLoad(e) {
 
 function startGame() {
 
-	// Our hero can be moved with the arrow keys (left, right)
-	//  document.onkeydown = handleKeyDown;
-	//document.onkeyup = handleKeyUp;
 
 	// Creating the Hero
 
