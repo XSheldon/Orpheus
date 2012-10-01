@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="Easel/build"/>
+	<classpathentry kind="src" path="Easel/examples/assets"/>
+	<classpathentry kind="src" path="Easel/examples/SpriteSheetBuilderMC"/>
+	<classpathentry kind="src" path="Easel/lib"/>
+	<classpathentry kind="src" path="Easel/src/easeljs/display"/>
+	<classpathentry kind="src" path="Easel/src/easeljs/events"/>
+	<classpathentry kind="src" path="Easel/src/easeljs/filters"/>
+	<classpathentry kind="src" path="Easel/src/easeljs/geom"/>
+	<classpathentry kind="src" path="Easel/src/easeljs/ui"/>
+	<classpathentry kind="src" path="Easel/src/easeljs/utils"/>
+	<classpathentry kind="src" path="Easel/tutorials/Inheritance"/>
+	<classpathentry excluding="SyntaxHighlighter/" kind="src" path="Easel/tutorials/shared"/>
+	<classpathentry kind="src" path="Easel/tutorials/shared/SyntaxHighlighter"/>
+	<classpathentry excluding="old/" kind="src" path="source"/>
+	<classpathentry kind="src" path="source/old"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path=""/>
+</classpath>

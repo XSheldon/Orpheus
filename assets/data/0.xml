@@ -1,0 +1,158 @@
+<xml>
+<Orphee>
+<Rooms>
+
+<Room id="0" name="Entrance">
+
+<Item id="10" name = "Key">
+
+	<x> -100 </x>
+	<y> -100 </y>
+	<w> 20 </w>
+	<h> 20 </h>
+	<texte>This looks like the key to the entrance door</texte>
+	
+	<inventaire> 1 </inventaire>
+	<activer> 
+		<texte> </texte>
+		<resultat> </resultat>
+		<effet> </effet>
+	</activer>
+	<observer> 
+		<texte> It is a large key made of iron. Cold to the touch. </texte>
+		<effet> </effet>
+	</observer>
+	
+	
+		
+</Item>	
+
+<Item id="11" name = "Door">
+
+	<x> 925 </x>
+	<y> 145 </y>
+	<w> 35 </w>
+	<h> 355 </h>
+	<texte>What a beautiful door, and it seems so unbreakable!</texte>
+	
+	<inventaire> 0 </inventaire>
+	<activer> 
+		<texte> Open the door. </texte>
+		<resultat> I would love to do it, but it is so damn locked! </resultat>
+		<effet> </effet>
+	</activer>
+	<observer> 
+		<texte> Obviously i got to go through... </texte>
+		<effet> </effet>
+	</observer>
+	
+	<actions>
+		<action idAutreObjet="10"> 
+			<method>@todo </method>
+			<resultat> The door opens, great! </resultat>
+		</action>
+	</actions>
+		
+</Item>	
+<Item id="12" name = "Gargoyle">
+
+	<x> 850 </x>
+	<y> 85 </y>
+	<w> 35 </w>
+	<h> 55 </h>
+	<texte>What an ugly gargoyle!</texte>
+	
+	<inventaire> 0 </inventaire>
+	<activer> 
+		<texte> I could try to reach it!</texte>
+		<resultat> This is too high, i should have picked basket ball at college! </resultat>
+		<effet> </effet>
+	</activer>
+	<observer> 
+		<texte> Oh I think i saw something into it!  </texte>
+		<effet> </effet>
+	</observer>
+	<actions>
+		<action idAutreObjet="13"> 
+			<method>@todo </method>
+			<resultat> Hey! Something fell on the ground! </resultat>
+		</action>
+	</actions>
+		
+</Item>	
+
+<Item id="13" name = "Cane">
+
+	<x> 358 </x>
+	<y> 400 </y>
+	<w> 20 </w>
+	<h> 100 </h>
+	<texte>A cane. I would love to keep it for my old days...</texte>
+	
+	<inventaire> 1 </inventaire>
+	<activer> 
+		<texte>  </texte>
+		<resultat></resultat>
+		<effet> </effet>
+	</activer>
+	<observer> 
+		<texte> It's a dark wood cane with a wolf head, so "chic"! </texte>
+		<effet> </effet>
+	</observer>
+	
+	
+</Item>	
+
+<Room id="1" name ="Hall">
+
+
+</Room>
+
+<Room id="2" name ="Hall">
+
+
+</Room>
+
+<Room id="3" name ="Hall">
+
+
+</Room>
+
+<Room id="4" name ="Hall">
+
+
+</Room>
+
+<Room id="5" name ="Hall">
+
+
+</Room>
+
+<Room id="6" name ="Hall">
+
+
+</Room>
+
+<Room id="7" name ="Hall">
+
+
+</Room>
+
+<Room id="8" name ="Hall">
+
+
+</Room>
+
+<Room id="9" name ="Hall">
+
+
+</Room>
+
+	
+
+</Room>
+
+
+</Rooms>
+</Orphee>
+</xml>
