@@ -19,19 +19,73 @@ function ContentManager() {
     this.imgInventaire = new Image();
     this.imgBackground2 = new Image();
     this.imgCerberus = new Image();
+    this.itemArray = new Array();
+    this.xItems = new Array();
+    this.yItems = new Array();
     
     //var numImagesLoaded = 0;
 
     // public method to launch the download process
     this.StartDownload = function () {
+    	
+    //@TODO : le loader est a revoir	
        SetDownloadParameters(this.imgHero, "assets/img/Hero_mov.png", handleImageLoad, handleImageError);
-       SetDownloadParameters(this.imgRabbit, "assets/img/Rabbit.png", handleImageLoad, handleImageError);
+      // SetDownloadParameters(this.imgRabbit, "assets/img/Rabbit.png", handleImageLoad, handleImageError);
        
         
 	//SetDownloasParameters(this.imgCerberus, "assets/img/cerberus.png", handleImageLoad, handleImageonError);
         
  };
  
+ this.downloadItemsImages = function (scene_id){
+	 
+
+	 
+	 this.itemArray = new Array();
+	 
+	this.xItems = new Array();
+	 this.yItems = new Array();
+
+	 //@todo ICI
+	
+	 // récupérer les id des items présents, ainsi que leurs coordonnées
+	 var items = parseScene(scene_id);
+	 var j=0;
+	 
+	 for(var i=0;i<items.length;i++){
+		 
+
+		 if(items[i].takable == true){
+//			 
+//			
+//			
+			 this.itemArray.push(new Image());
+//			 
+			
+			 this.xItems.push(items[i].x-items[i].w/2);
+			 this.yItems.push(items[i].y-items[i].h/2);
+			 SetDownloadParameters(this.itemArray[j], "assets/items/"+items[i].id+".png", handleImageLoadInGame, handleImageError);
+			 j++;
+	 }
+//		 
+//		 
+ }
+	 
+	
+	 
+	
+	 
+ };
+ 
+ 
+ this.downloadIcon = function(id){
+	 
+	 var image = new Image();
+	 
+	 SetDownloadParameters(image, "assets/icons/"+id+".png", handleImageLoadInGame, handleImageError);
+	 return image;
+	 
+ };
  
  this.downloadNewScene = function (scene_id) {
 	 
@@ -46,6 +100,7 @@ function ContentManager() {
 	 // le background
      SetDownloadParameters(this.imgBackground, "assets/img/"+scene_id+".jpg", handleImageLoadInGame, handleImageError);
     
+     this.downloadItemsImages(scene_id);
      
      
 };

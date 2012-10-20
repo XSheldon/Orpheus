@@ -144,7 +144,18 @@ function checkAction(code_origin_clic, current_item) {
 		 displayMessage(current_item.textResultActivate);
 	   break;
 	 case 2 : 
+		 alert(current_item);
 		 displayMessage("I better take this with me");
+		 // on l'ajoute à l'inventaire @todo en travaux
+		 inventaire.addItem(current_item);
+		 var image = contentManager.downloadIcon(current_item.id);
+		 var child = new createjs.Bitmap(image);
+		 child.x = 512;
+		 child.y = 576;
+		 stage.addChild(child);
+		 
+		 
+		 
 	 default:
 	  
 	 }
@@ -171,6 +182,7 @@ function isInside(xClic, yClic, x, y, w, h) {
 }
 
 function parseScene(scene_id) {
+	// retourne les objets Items liés à une scène
 
 	var xmlhttp = new XMLHttpRequest();
 	

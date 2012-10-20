@@ -1,5 +1,5 @@
-function Inventaire(mon_id,mon_frame_id) {
-        Inventaire.prototype.initialize(mon_id);
+function Inventaire() {
+        Inventaire.prototype.init();
     }
     
   
@@ -20,16 +20,7 @@ function Inventaire(mon_id,mon_frame_id) {
                       ];
                       
  
- 
- myArray.forEach(function(value, index, array) {
-    
-    alert(
-        'Index : ' + index
-        + '\n' +
-        'Valeur : ' + value
-    );
-    });
-    
+        Inventaire.prototype.items = new Array();
 
 
 
@@ -39,30 +30,53 @@ function Inventaire(mon_id,mon_frame_id) {
       
          
          
-     }
+     };
     
-  Inventaire.prototype.initialize = function () {
-   
-   
- 
-   // definir et initialiser mesitems
-   this.mesitems = new Array(); // c'est une array d'array avec dedans un Item et une methode
-       
-  }
+     Inventaire.prototype.init = function(){
+    	 items = new Array();
+     };
+
   
   
   // une methode addItem
-  Inventaire.prototype.addItem = function () {
+  Inventaire.prototype.addItem = function (item) {
+	  
+	  
+	  
+	  if(items.length <12){
+	  items.push(item);
+	  
+	  //virer l'item de l'Žcran et reflechir  a l'architecture pour que ca ne revienne pas quand on revient sur l ecran
+	  //@todo : regarder avant d'afficher un item ˆ l'Žcran s'il est actif ou pas
+	  
+	  return true;
+	  }
+	  else{
+		  displayMessage("My back hurts, my bad is so heavy. I should try to sort the things I've taken with me");
+		  return false;
+	  }
       
-  }
+  };
   // une methode removeItem
-  Inventaire.prototype.removeItem = function () {
+  Inventaire.prototype.removeItem = function (item) {
       
+	  //@TODO
       
-  }
+  };
   
   //une methode getItem(coordonnees)
   Inventaire.prototype.getItem = function (clicx, clicy) {
       //trouver le bin index
   //retourer mesitems[index]
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
   }

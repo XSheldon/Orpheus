@@ -1,0 +1,4 @@
+Je suis en train d implementer l inventaire
+il y a un probleme avec les "icons" qui ne sont pas pris contrairement aux images items dans assets
+il y a un autre probleme sur la reflexion sur l'architecture : comment stocke-t-on l'info sur l'avancement du jeu ?
+enfin, il faudra refactorer le code en utilisant les methodes de l'api plutot que les miennes et mettre toutes les variables en anglais
